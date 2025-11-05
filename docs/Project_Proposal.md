@@ -8,55 +8,104 @@
 
 ---
 
-# AI Hardware Project Proposal Template
+# AI Hardware Project Proposal
 
 ## 1. Project Title
-Name of the Team
+**Comparison of CNNs and SNNs on the MNIST Dataset Using the BrainChip Akida AI Processor**
 
-List of students in the team
+**Team Name:** Antimony Pentafluoride Enjoyers  
+**Students:** Alex Clunan, Bobby Downey  
 
-Provide a clear and concise title for your project. 
+---
 
 ## 2. Platform Selection
-Select one platform category and justify your choice.
+**Selected Platform:** BrainChip Akida (Neuromorphic Computing Platform)
 
-**Undergraduates:** Edge-AI, TinyML, or Neuromorphic platforms  
-**Graduates:** open-source AI accelerators (Ztachip, VTA, Gemmini, VeriGOOD-ML, NVDLA) or any of the above 
+**Justification:**  
+The BrainChip Akida processor is a hardware environment optimized for spiking neural networks. Its neuromorphic architecture allows inference that is energy-efficient specifically for tasks in on-chip learning.  
+Because of its optimized architecture, the BrainChip Akida seems the ideal platform to benchmark traditional convolutional neural networks (CNNs) against spiking neural networks (SNNs) on the same hardware for a fair comparison of accuracy while also considering other metrics like latency and power draw.
+
+---
 
 ## 3. Problem Definition
-Describe the AI or hardware design problem you aim to address and its relevance to AI hardware (e.g., efficiency, latency, scalability).
+As discussed in class, convolutional neural networks (CNNs) perform well on image classification tasks such as MNIST, but due to their size, they often result in substantial energy consumption.  
+Spiking neural networks (SNNs) emulate biological neural systems using event-driven computation. Since computation is only triggered by discrete events that are often sparse in time, there is most often much less parameters than for CNNs, potentially offering significant improvements in energy efficiency.
+
+The goal of this project is to compare CNN and SNN performance on the MNIST dataset using the Akida processor, focusing specifically on metrics of accuracy, inference latency, and energy efficiency.  
+
+---
 
 ## 4. Technical Objectives
-List 3–5 measurable objectives with quantitative targets when possible.
+1. Implement CNN and SNN for MNIST classification using the Akida Development Kit.  
+2. Measure differences in accuracy, energy consumption, and inference latency between CNN and SNN models.    
+3. Perform these comparisons with both rate encoding and temporal encoding for SNN
+4. Visualize these realtive metrics with plots and analyze.  
+5. If time permits, run the sam CNN-SNN comparison using STDP or another form of online learning (the model continuously updates as data arrives)
+6. Provide code and documentation for benchmarking CNNs vs. SNNs on Akida hardware.
+
+---
 
 ## 5. Methodology
-Describe your planned approach: hardware setup, software tools, model design, performance metrics, and validation strategy.
+1. **Dataset:**  
+   - Use the standard MNIST dataset (60,000 training, 10,000 testing images).  
+   - Convert static images into spike trains for the SNN model using rate and temporal encoding.
+
+2. **Model Development:**  
+   - Implement a baseline CNN for MNIST using the Akida Python SDK or some other compatible PyTorch model.  
+   - Convert the CNN into an equivalent SNN using Akida’s conversion tools.  
+   - Deploy both models onto the Akida Development Board for benchmarking of inferences.
+
+3. **Hardware and Software Tools:**  
+   - **Hardware:** BrainChip Akida Development Board, a PC compatable with the dev board  
+   - **Software:** Akida Python SDK, PyTorch, NumPy, Matplotlib, MNIST dataset
+
+4. **Evaluation Metrics:**  
+   - Classification accuracy (%)  
+   - Energy consumption (mJ/inference)  
+   - Inference latency (ms/inference)  
+
+5. **Validation Strategy:**  
+
+
+---
 
 ## 6. Expected Deliverables
-List tangible outputs: working demo, GitHub repository, documentation, presentation slides, and final report.
+- Fully implemented CNN and SNN MNIST classifiers on Akida hardware  
+- Comparative report analyzing accuracy, latency, and energy efficiency  
+- GitHub repository with reproducible code and setup instructions  
+- Final report and presentation slides summarizing findings  
+
+---
 
 ## 7. Team Responsibilities
-List each member’s main role.
-
 | Name | Role | Responsibilities |
 |------|------|------------------|
-| [Student A] | Team Lead | Coordination, documentation |
-| [Student B] | Hardware | Setup, integration |
-| [Student C] | Software | Model training, inference |
-| [Student D] | Evaluation | Testing, benchmarking |
+| Alex Clunan | Hardware and Deployment Lead |  |
+| Bobby Downey | Software and Analysis Lead | CNN/SNN training, data preprocessing, results analysis |
+
+
+---
 
 ## 8. Timeline and Milestones
-Provide expected milestones:
-
 | Week | Milestone | Deliverable |
 |------|------------|-------------|
-| 2 | Proposal | PDF + GitHub submission |
-| 4 | Midterm presentation | Slides, preliminary results |
-| 6 | Integration & testing | Working prototype |
-| Dec. 18 | Final presentation | Report, demo, GitHub archive |
+| 2 | Proposal Submission | Project proposal (PDF and GitHub upload) |
+| 4 | CNN and SNN Implementation | Baseline models tested in simulation |
+| 6 | Hardware Deployment | CNN and SNN running on Akida board | Evaluation & Comparison | Performance and energy benchmarking |
+| Dec. 18 | Final Presentation | Report, slides, and GitHub repository | 
+
+---
 
 ## 9. Resources Required
-List special hardware, datasets, or compute access needed.
+- BrainChip Akida Development Kit  
+- MNIST Dataset  
+- Akida Python SDK and documentation  
+- Python measurement tools  
+
+---
 
 ## 10. References
-Include relevant papers, repositories, and documentation.
+1. BrainChip Akida Documentation — https://brainchip.com/developer  
+2. Tavanaei, A., et al., “Deep Learning in Spiking Neural Networks,” *Neural Networks*, 2019.  
+3. Diehl, P.U. & Cook, M., “Unsupervised Learning of Digit Recognition Using Spike-Timing-Dependent Plasticity,” *Frontiers in Computational Neuroscience*, 2015.  
+4. Rueckauer, B., et al., “Conversion of Continuous-Valued Deep Networks to Efficient Event-Driven Networks for Image Classification,” *Frontiers in Neuroscience*, 2017.
