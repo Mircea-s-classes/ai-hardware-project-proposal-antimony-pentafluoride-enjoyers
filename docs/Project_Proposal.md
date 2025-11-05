@@ -23,7 +23,7 @@
 
 **Justification:**  
 The BrainChip Akida processor is a hardware environment optimized for spiking neural networks. Its neuromorphic architecture allows inference that is energy-efficient specifically for tasks in on-chip learning.  
-Because of its optimized architecture, the BrainChip Akida seems the ideal platform to benchmark traditional convolutional neural networks (CNNs) against spiking neural networks (SNNs) on the same hardware for a fair comparison of accuracy while also considering other metrics like latency and power draw.
+Because of its optimized architecture, the BrainChip Akida can natively run SNNs which enables optimized performance. We will compare this with the same CNN running on a CPU.
 
 ---
 
@@ -31,16 +31,16 @@ Because of its optimized architecture, the BrainChip Akida seems the ideal platf
 As discussed in class, convolutional neural networks (CNNs) perform well on image classification tasks such as MNIST, but due to their size, they often result in substantial energy consumption.  
 Spiking neural networks (SNNs) emulate biological neural systems using event-driven computation. Since computation is only triggered by discrete events that are often sparse in time, there is most often much less parameters than for CNNs, potentially offering significant improvements in energy efficiency.
 
-The goal of this project is to compare CNN and SNN performance on the MNIST dataset using the Akida processor, focusing specifically on metrics of accuracy, inference latency, and energy efficiency.  
+The goal of this project is to compare CNN and SNN performance on the MNIST dataset using the a CPU/GPU and Akida processor respectively, focusing specifically on metrics of accuracy, inference latency, and energy efficiency.  
 
 ---
 
 ## 4. Technical Objectives
-1. Implement CNN and SNN for MNIST classification using the Akida Development Kit.  
+1. Implement SNN using the Akida Development Kit and PyTorch and the CNN using PyTorch for MNIST classification.  
 2. Measure differences in accuracy, energy consumption, and inference latency between CNN and SNN models.    
 3. Perform these comparisons with both rate encoding and temporal encoding for SNN
 4. Visualize these realtive metrics with plots and analyze.  
-5. If time permits, run the sam CNN-SNN comparison using STDP or another form of online learning (the model continuously updates as data arrives)
+5. If time permits, compare the performance of the same SNN that uses Akida Edge Learning to learn the same dataset.
 6. Provide code and documentation for benchmarking CNNs vs. SNNs on Akida hardware.
 
 ---
@@ -70,7 +70,7 @@ The goal of this project is to compare CNN and SNN performance on the MNIST data
 ---
 
 ## 6. Expected Deliverables
-- Fully implemented CNN and SNN MNIST classifiers on Akida hardware  
+- Fully implemented CNN and SNN MNIST classifiers  
 - Comparative report analyzing accuracy, latency, and energy efficiency  
 - GitHub repository with reproducible code and setup instructions  
 - Final report and presentation slides summarizing findings  
@@ -80,7 +80,7 @@ The goal of this project is to compare CNN and SNN performance on the MNIST data
 ## 7. Team Responsibilities
 | Name | Role | Responsibilities |
 |------|------|------------------|
-| Alex Clunan | Hardware and Deployment Lead |  |
+| Alex Clunan | Hardware and Deployment Lead, Anitmony Pentafluoride Merchant | Hardware Setup, SNN Deployment |
 | Bobby Downey | Software and Analysis Lead | CNN/SNN training, data preprocessing, results analysis |
 
 
@@ -91,21 +91,21 @@ The goal of this project is to compare CNN and SNN performance on the MNIST data
 |------|------------|-------------|
 | 2 | Proposal Submission | Project proposal (PDF and GitHub upload) |
 | 4 | CNN and SNN Implementation | Baseline models tested in simulation |
-| 6 | Hardware Deployment | CNN and SNN running on Akida board | Evaluation & Comparison | Performance and energy benchmarking |
+| 6 | Hardware Deployment | CNN and SNN running | Evaluation & Comparison | Performance and energy benchmarking |
 | Dec. 18 | Final Presentation | Report, slides, and GitHub repository | 
 
 ---
 
 ## 9. Resources Required
-- BrainChip Akida Development Kit  
+- BrainChip Akida Development Kit
+- GPU
 - MNIST Dataset  
 - Akida Python SDK and documentation  
-- Python measurement tools  
+- Python measurement tools 
 
 ---
 
 ## 10. References
 1. BrainChip Akida Documentation — https://brainchip.com/developer  
-2. Tavanaei, A., et al., “Deep Learning in Spiking Neural Networks,” *Neural Networks*, 2019.  
-3. Diehl, P.U. & Cook, M., “Unsupervised Learning of Digit Recognition Using Spike-Timing-Dependent Plasticity,” *Frontiers in Computational Neuroscience*, 2015.  
-4. Rueckauer, B., et al., “Conversion of Continuous-Valued Deep Networks to Efficient Event-Driven Networks for Image Classification,” *Frontiers in Neuroscience*, 2017.
+2. Diehl, P.U. & Cook, M., “Unsupervised Learning of Digit Recognition Using Spike-Timing-Dependent Plasticity,” *Frontiers in Computational Neuroscience*, 2015.  
+3. https://doc.brainchipinc.com/user_guide/user_guide.html 
