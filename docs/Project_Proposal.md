@@ -106,6 +106,6 @@ The goal of this project is to compare CNN and SNN performance on the MNIST data
 ---
 
 ## 10. References
-1. BrainChip Akida Documentation — https://brainchip.com/developer  
+1. BrainChip Akida Documentation: https://brainchip.com/developer  
 2. Diehl, P.U. & Cook, M., “Unsupervised Learning of Digit Recognition Using Spike-Timing-Dependent Plasticity,” *Frontiers in Computational Neuroscience*, 2015.  
-3. https://doc.brainchipinc.com/user_guide/user_guide.html 
+3. Akida User Guide: https://doc.brainchipinc.com/user_guide/user_guide.html 
