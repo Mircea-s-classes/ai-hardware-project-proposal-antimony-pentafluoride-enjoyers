@@ -64,7 +64,7 @@ The goal of this project is to compare CNN and SNN performance on the MNIST data
    - Inference latency (ms/inference)  
 
 
-## 5. Expected Deliverables
+## 6. Expected Deliverables
 - Fully implemented CNN and SNN MNIST classifiers  
 - Comparative report analyzing accuracy, latency, and energy efficiency  
 - GitHub repository with reproducible code and setup instructions  
