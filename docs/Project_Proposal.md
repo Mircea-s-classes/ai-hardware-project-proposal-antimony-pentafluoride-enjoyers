@@ -10,8 +10,7 @@
 
 # AI Hardware Project Proposal
 
-## 1. Project Title
-**Comparison of CNNs and SNNs on the MNIST Dataset Using the BrainChip Akida AI Processor**
+## 1. Comparison of CNNs and SNNs on the MNIST Dataset Using the BrainChip Akida AI Processor
 
 **Team Name:** Antimony Pentafluoride Enjoyers  
 **Students:** Alex Clunan, Bobby Downey  
@@ -23,7 +22,7 @@
 
 **Justification:**  
 The BrainChip Akida processor is a hardware environment optimized for spiking neural networks. Its neuromorphic architecture allows inference that is energy-efficient specifically for tasks in on-chip learning.  
-Because of its optimized architecture, the BrainChip Akida can natively run SNNs which enables optimized performance. We will compare this with the same CNN running on a CPU.
+Because of its optimized architecture, the BrainChip Akida can natively run SNNs which enables optimized performance. We will compare this with the same CNN running on a CPU/GPU.
 
 ---
 
@@ -64,16 +63,13 @@ The goal of this project is to compare CNN and SNN performance on the MNIST data
    - Energy consumption (mJ/inference)  
    - Inference latency (ms/inference)  
 
-5. **Validation Strategy:**  
 
-
----
-
-## 6. Expected Deliverables
+## 5. Expected Deliverables
 - Fully implemented CNN and SNN MNIST classifiers  
 - Comparative report analyzing accuracy, latency, and energy efficiency  
 - GitHub repository with reproducible code and setup instructions  
-- Final report and presentation slides summarizing findings  
+- Final report and presentation slides summarizing findings
+- If time, compare the a normal SNN with another that uses Akida Edge Learning 
 
 ---
 
