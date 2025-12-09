@@ -30,7 +30,7 @@ Because of its optimized architecture, the BrainChip Akida can natively run SNNs
 As discussed in class, convolutional neural networks (CNNs) perform well on image classification tasks such as MNIST, but due to their size, they often result in substantial energy consumption.  
 Spiking neural networks (SNNs) emulate biological neural systems using event-driven computation. Since computation is only triggered by discrete events that are often sparse in time, there is most often much less parameters than for CNNs, potentially offering significant improvements in energy efficiency.
 
-The goal of this project is to compare CNN and SNN performance on the MNIST dataset using the a CPU/GPU and Akida processor respectively, focusing specifically on metrics of accuracy, inference latency, and energy efficiency.  
+The goal of this project is to compare CNN and SNN performance on the MNIST dataset using a CPU/GPU and Akida processor respectively, focusing specifically on metrics of accuracy, inference latency, and energy efficiency.  
 
 ---
 
