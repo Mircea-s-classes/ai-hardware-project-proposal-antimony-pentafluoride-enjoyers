@@ -2,21 +2,17 @@
 
 **Team:** Antimony Pentafluoride Enjoyers  
 **Students:** Alex Clunan, Bobby Downey  
-**Course:** ECE 4332 / ECE 6332 — AI Hardware Design and Implementation (Fall 2025)  
+**Course:** ECE 4380 / ECE 6380 — AI Hardware Design and Implementation (Fall 2025)  
 
 ---
 
 ## Introduction
-This project investigates the performance and efficiency of **Convolutional Neural Networks (CNNs)** and **Spiking Neural Networks (SNNs)** on the MNIST dataset using both CPU and BrainChip Akida hardware. Our goal is to compare classification accuracy, inference latency, and energy efficiency while highlighting the benefits and trade-offs of neuromorphic computation. We leverage the Akida neuromorphic platform for running SNNs and compare them against conventional CNNs running on CPU.
-
-*Potential figure*: Diagram showing CNN vs SNN processing pipeline.
+This project investigates the performance and efficiency of **Convolutional Neural Networks (CNNs)** and **Spiking Neural Networks (SNNs)** on the MNIST dataset using both CPU and BrainChip Akida hardware. Our goal is to compare classification accuracy, inference latency, and energy efficiency while highlighting the benefits and trade-offs of neuromorphic computation. We use the Akida neuromorphic platform for running SNNs and compare them against conventional CNNs running on CPU.
 
 ---
 
 ## Background
 CNNs are widely used for image classification due to their high accuracy. However, their computations are continuous and energy-intensive. SNNs emulate biological neurons using event-driven computation, which triggers processing only when spikes occur, potentially reducing energy usage. This architecture allows neuromorphic systems like Akida to perform low-power inference suitable for edge devices.
-
-*Potential figure*: Illustration of CNN vs SNN neuron firing patterns.
 
 ---
 
@@ -24,6 +20,13 @@ CNNs are widely used for image classification due to their high accuracy. Howeve
 The dataset used is MNIST, containing 60,000 training images and 10,000 testing images. For the CNN, images are normalized and processed conventionally. For the SNN, images are converted into spike trains using either rate or temporal encoding to simulate neuron firing.
 
 The baseline CNN was implemented in PyTorch and trained for five epochs. We quantized the model to 4-bit weights and activations to prepare it for conversion to an SNN using Akida's tools. The SNN was then deployed on the Akida Development Kit, and benchmarks were conducted to measure throughput, latency, and energy consumption. The general pipeline for preparing the CNN and SNN models is shown below, followed by a call to our benchmarking function.
+
+
+**CNN to SNN Flow Diagram**  
+Flow Diagram from CNN to Quantized CNN to SNN using Akida SDK.  
+
+| ![cnn2snn](CNN2SNN_FLOW.png) |
+|-----------------------|
 
 ```python
 import numpy as np
@@ -83,7 +86,7 @@ stats_ak = benchmark_akida_with_statistics(model_ak_v1, dev, x_test, y_test, bat
 
 ## Experiments and Results
 
-Our experiments evaluated both the CNN running on CPU and the SNN deployed on the Akida Development Board. We tested with batch sizes of 1 and 256, recording classification accuracy, throughput, inference latency, and energy per image. Overall, the CNN achieved slightly higher accuracy, while the SNN on Akida demonstrated a dramatic reduction in energy consumption per inference, highlighting the advantages of neuromorphic hardware.
+Our experiments evaluated both the CNN running on CPU and the SNN deployed on the Akida Development Board. We tested with batch sizes of 1 and 256, recording classification accuracy, throughput, inference latency, and energy per image. Overall, the CNN achieved slightly higher accuracy, while the SNN on Akida demonstrated a substantial reduction in energy consumption per inference, highlighting the advantages of neuromorphic hardware.
 
 | Platform | Batch | Accuracy | Throughput (img/s) | Energy per image |
 |----------|-------|---------|------------------|----------------|
@@ -110,10 +113,15 @@ Our experiments evaluated both the CNN running on CPU and the SNN deployed on th
 ### Hardware Setup Challenges
 Setting up the Akida Development Board proved to be time-consuming and complex. Initially, we tried using a new computer with an AMD 9950X3D CPU and RTX 5070 GPU. During Linux installation, we encountered a corrupted flash drive that required replacement. The Akida drivers only supported Linux kernel version 5, which the new computer could not run. We attempted to use a virtual machine via Proxmox running Ubuntu 20.04 (the supported Linux version), which allowed PCI passthrough, but frequent connection timeouts made this setup unusable. Eventually, we switched to an older computer in the Rice 240 CPE lab which uses an Intel Core i7-8700K CPU. After failed dual-boot attempts, we successfully used Proxmox with a VM running Ubuntu 20.04, allowing the environment to finally function for deployment and benchmarking.
 
+**Hardware Used**  
+AMD 9950x3d Desktop and Akida PCIe Board.  
+
+| ![desktop](desktop.png) | ![board](board.png) |
+|------------------------------------------------------|----------------------------------------------------------------------|
 
 ### Graphs and Interpretation
 
-To make the report more compact and visually organized, we grouped related graphs side by side. Each group shows complementary performance metrics so readers can quickly compare CPU vs Akida behavior.
+To make the report more compact and visually organized, we grouped related graphs side by side. Each group shows complementary performance metrics comparing CPU vs Akida behavior.
 
 **Batch Latency (P99, P90, P50)**  
 Shows latency percentiles for each batch size, highlighting worst-case, near-worst, and median latencies. Arranging these together allows easy comparison of latency distribution.  
@@ -145,25 +153,12 @@ Plots the trade-off between throughput and energy, showing Akida’s efficiency 
 | ![pareto](pareto.png) |
 |-----------------------|
 
-*Note*: Arranging images in groups reduces vertical space and helps readers correlate related metrics, such as latency distributions or energy consumption vs throughput.
-
-
-
-
-*Potential figures*:  
-- Annotated screenshots of the Akida board running the SNN  
-- Benchmark output tables from the Python SDK  
-- Visualization of CNN vs SNN processing pipelines  
-- Diagrams showing lab computer and VM setup for deployment
-
 ---
 
 ## Conclusion
 The Akida SNN provides energy-efficient inference while maintaining reasonable accuracy on the MNIST dataset. CPU-based CNNs offer higher throughput and marginally better accuracy, but their energy consumption is orders of magnitude higher. The setup experience illustrates that while the hardware offers substantial benefits, integrating it with modern systems can be challenging due to compatibility issues and driver limitations. Using older, compatible lab computers in combination with a virtualized Ubuntu 20.04 environment ultimately allowed successful deployment. 
 
-These results highlight that neuromorphic hardware is promising for low-power, edge AI applications, but careful attention to hardware and software compatibility is required. Future work could explore temporal encoding, Akida Edge Learning, and scaling to more complex datasets to further leverage the benefits of SNNs.
-
-*Potential figure*: Visual summary comparing CPU CNN vs Akida SNN, annotated with energy efficiency, accuracy, and deployment workflow.
+These results highlight that neuromorphic hardware is promising for low-power, edge AI applications, but careful attention to hardware and software compatibility is required. Future work could explore temporal encoding on a different platform which better supports it, Akida Edge Learning, and scaling to more complex datasets to further leverage the benefits of SNNs.
 
 ---
 
