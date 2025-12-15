@@ -25,7 +25,7 @@ The baseline CNN was implemented in PyTorch and trained for five epochs. We quan
 **CNN to SNN Flow Diagram**  
 Flow Diagram from CNN to Quantized CNN to SNN using Akida SDK.  
 
-| ![cnn2snn](CNN2SNN_FLOW.png) |
+| ![CNN2SNN_FLOW](CNN2SNN_FLOW.png) |
 |-----------------------|
 
 ```python
