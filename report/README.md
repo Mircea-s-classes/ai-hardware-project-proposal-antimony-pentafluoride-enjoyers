@@ -2,7 +2,7 @@
 
 **Team:** Antimony Pentafluoride Enjoyers  
 **Students:** Alex Clunan, Bobby Downey  
-**Course:** ECE 4380 / ECE 6380 — AI Hardware Design and Implementation (Fall 2025)  
+**Course:** ECE 4380 / ECE 6380 — AI Hardware (Fall 2025)  
 
 ---
 
