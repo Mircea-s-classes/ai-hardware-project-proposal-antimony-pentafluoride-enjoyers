@@ -6,7 +6,6 @@
 
 ---
 
-## Introduction
 This project investigates the performance and efficiency of **Convolutional Neural Networks (CNNs)** and **Spiking Neural Networks (SNNs)** on the MNIST dataset using both CPU and BrainChip Akida hardware. Our goal is to compare classification accuracy, inference latency, and energy efficiency while highlighting the benefits and trade-offs of neuromorphic computation. We use the Akida neuromorphic platform for running SNNs and compare them against conventional CNNs running on CPU.
 
 ---
