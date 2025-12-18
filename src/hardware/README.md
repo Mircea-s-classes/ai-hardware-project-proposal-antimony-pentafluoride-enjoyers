@@ -89,10 +89,10 @@ This setup was able to locate the Akida board, but DMA connections kept on timin
        jupyter notebook
 
 3. Open the provided notebook and run all cells to:
-   - Load the Akida-compatible model
-   - Map the model to the Akida device
-   - Run inference and collect performance metrics
-
+   - Load and train the custom Akida-compatible CNN
+   - Convert the CNN to an SNN
+   - Map the SNN to the Akida device
+   - Run inference and collect performance metrics (CNN ==> CPU, SNN ==> Akida PCIe Board)
 
 ### Final Hardware Configuration
 
