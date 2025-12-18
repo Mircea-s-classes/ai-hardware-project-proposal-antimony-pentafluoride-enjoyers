@@ -19,10 +19,14 @@ Newer systems with recent AMD CPUs and modern Linux kernels were found to be inc
 
 ### Failed Host and Virtualization Setup
 
-1. Install Proxmox VE on the host machine.
-2. Insert the Akida Development Board into a PCIe slot and verify it is detected in BIOS.
-3. Enable VT-x, VT-d, and IOMMU in BIOS.
-4. Boot into Proxmox and setup Ubunutu VM
+1. Install Ubuntu 24.04.3 LTS via Dual Booting on an AMD 9950x3D system
+   - First USB drive failed, had to buy a new one to install the OS
+   - OS was not compatible with the Akida PCIe Board
+   - Accidentally wiped original OS from the machine and lost all the files on it
+3. Install Proxmox VE on the host machine.
+4. Insert the Akida Development Board into a PCIe slot and verify it is detected in BIOS.
+5. Enable VT-x, VT-d, and IOMMU in BIOS.
+6. Boot into Proxmox and setup Ubunutu VM
 
 ### Failed Virtual Machine Configuration
 
