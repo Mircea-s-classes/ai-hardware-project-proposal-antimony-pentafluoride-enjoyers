@@ -36,6 +36,7 @@ Newer systems with recent AMD CPUs and modern Linux kernels were found to be inc
 4. Start the VM and verify the Akida board is visible:
    
        lspci | grep -i Co-processor
+   
        Output: Co-processor: Device 1e7c:bca1 (rev 01)
    
 This setup was able to locate the Akida board, but DMA connections kept on timing out, so we switched to a different desktop computer.
@@ -67,7 +68,7 @@ This setup was able to locate the Akida board, but DMA connections kept on timin
    
        pip install akida
 
-5. Verify that the board is detected:
+5. Verify that the board is detected in Python:
    
        python3
        >>> import akida
