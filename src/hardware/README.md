@@ -1,16 +1,16 @@
 # Hardware Design
 Include hardware or accelerator implementation files.
 
-BrainChip Akida v1 Datasheet: https://brainchip.com/wp-content/uploads/2025/04/Akida1-IP-Product-Brochure-V2.1-1.pdf
-BrainChip Akida PCIe Board User Guide: https://brainchip.com/wp-content/uploads/2022/06/Akida-PCIe_Board_UG_200c.pdf
+Brainchip Akida v1 Datasheet: https://brainchip.com/wp-content/uploads/2025/04/Akida1-IP-Product-Brochure-V2.1-1.pdf
+Brainchip Akida PCIe Board User Guide: https://brainchip.com/wp-content/uploads/2022/06/Akida-PCIe_Board_UG_200c.pdf
 
 ## Running the Software on the Akida Development Board
 
-This project runs inference and benchmarking on the BrainChip PCIe Board using a Jupyter notebook. The notebook itself is simple to run, but setting up a compatible hardware and software environment is not trivial due to driver and Linux kernel constraints.
+This project runs inference and benchmarking on the Brainchip PCIe Board using a Jupyter notebook. The notebook itself is simple to run, but setting up a compatible hardware and software environment is not trivial due to driver and Linux kernel constraints.
 
 ### Hardware Requirements
 
-- BrainChip Akida PCIe Board 
+- Brainchip Akida PCIe Board 
 - x86-64-based host system (tested on Intel Core i7-8700K)
 - System with support for Ubuntu with Linux Kernel 5.x
 - Available PCIe slot for the Akida board
